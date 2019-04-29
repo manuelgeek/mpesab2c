@@ -99,6 +99,7 @@ class B2C
 
     /**
      * @param mixed $ResultURL
+     * @return mixed
      */
     public function setResultURL ($ResultURL)
     {
@@ -150,9 +151,14 @@ class B2C
         $header[] = 'Authorization: Bearer ' . $this->access_token;
         return $header;
     }
+
     /**
-     * @param $data
+     * @param $Amount
+     * @param $CommandID
+     * @param $PartyB
+     * @param $Remarks
      * @return mixed
+     * @throws \Exception
      */
     public function sendMpesaMoney($Amount,$CommandID,$PartyB, $Remarks)
     {
@@ -193,7 +199,6 @@ class B2C
 
 
     /**
-     * @param mixed $access_token
      * @return
      */
     public function setAccessToken ()
@@ -211,9 +216,6 @@ class B2C
         //return $curl_response;
 
         return $this->access_token = $curl_response['access_token'];
-
-
-
 
     }
 
