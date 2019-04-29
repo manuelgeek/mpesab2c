@@ -16,10 +16,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Manuelgeek\\MpesaB2C\\MpesaServiceProvider"
+                "Manuelgeek\\MpesaServiceProvider"
             ],
             "aliases": {
-                "B2C": "Manuelgeek\\MpesaB2C\\Facades\\B2C"
+                "B2C": "Manuelgeek\\Facades\\B2C"
             }
         }
     }
