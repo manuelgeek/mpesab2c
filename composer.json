@@ -1,0 +1,12 @@
+{
+    "name": "manuelgeek/mpesab2c",
+    "description": "Safaricom's Mpesa Daraja API B2C implementation",
+    "authors": [
+        {
+            "name": "manuelgeek",
+            "email": "emashmagak@appslab.co.ke"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
