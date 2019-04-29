@@ -1,6 +1,8 @@
 {
     "name": "manuelgeek/mpesab2c",
     "description": "Safaricom's Mpesa Daraja API B2C implementation",
+    "keywords": ["mpesa", "safaricom", "laravel", "transactions", "api"],
+    "license": "MIT",
     "authors": [
         {
             "name": "manuelgeek",
@@ -8,5 +10,17 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Manuelgeek\\MpesaB2C\\MpesaServiceProvider"
+            ],
+            "aliases": {
+                "B2C": "Manuelgeek\\MpesaB2C\\Facades\\B2C"
+            }
+        }
+    }
 }
