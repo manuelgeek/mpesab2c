@@ -42,7 +42,7 @@ class MpesaServiceProvider extends ServiceProvider
     private function registerFacades()
     {
         $this->app->bind('mpesa_b2c', function () {
-            return $this->app->make(\Manuelgeek\MpesaB2C\Facades\B2C::class);
+            return $this->app->make(B2C::class);
         });
 
     }
