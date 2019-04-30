@@ -84,6 +84,83 @@ Example
 ?>
 ```
 
+## Sample Responses
+
+### Successful Request
+Once sent, you shall expect a success acknowledgement response from the API informing you that your request was accepted. The response format is as below:
+```
+{
+  "ConversationID": "AG_20180326_00005ca7f7c21d608166",
+  "OriginatorConversationID": "12363-1328499-6",
+  "ResponseCode": "0",
+  "ResponseDescription": "Accept the service request successfully."
+}
+
+```
+Note the value of ResponseCode. Any value other than 0 (zero) means the request was unsuccessful, and the error is defined in the ResponseDescription element. So you need to fix that first. A value of 0 means the request was accepted by the API.
+
+After M-Pesa completes processing the transaction, it sends back the callback via the ResultURL you specified in the initial request. A callback from M-Pesa can either be a success callback or a failure callback. A sample of a successful transaction callback is as shown below:
+```
+{
+	"Result":
+	{
+		"ResultType":0,
+		"ResultCode":0,
+		"ResultDesc":"The service request has been accepted successfully.",
+		"OriginatorConversationID":"14593-80515-2",
+		"ConversationID":"AG_20170821_000049448b24712383de",
+		"TransactionID":"LHL41AHJ6G",
+		"ResultParameters":
+		{
+			"ResultParameter":
+			[
+				{
+					"Key":"TransactionAmount",
+					"Value":100
+				},
+				{
+					"Key":"TransactionReceipt",
+					"Value":"LHL41AHJ6G"
+				},
+				{
+					"Key":"B2CRecipientIsRegisteredCustomer",
+					"Value":"Y"
+				},
+				{
+					"Key":"B2CChargesPaidAccountAvailableFunds",
+					"Value":0.00
+				},
+				{
+					"Key":"ReceiverPartyPublicName",
+					"Value":"254708374149 - John Doe"
+				},
+				{
+					"Key":"TransactionCompletedDateTime",
+					"Value":"21.08.2017 12:01:59"
+				},
+				{
+					"Key":"B2CUtilityAccountAvailableFunds",
+					"Value":98834.00
+				},
+				{
+					"Key":"B2CWorkingAccountAvailableFunds",
+					"Value":100000.00
+				}
+			]
+		},
+		"ReferenceData":
+		{
+			"ReferenceItem":
+			{
+				"Key":"QueueTimeoutURL",
+				"Value":"https:\/\/internalsandbox.safaricom.co.ke\/mpesa\/b2cresults\/v1\/submit"
+			}
+		}
+	}
+}
+
+```
+
 ## Contributing
 
 [https://github.com/manuelgeek/mpesab2c/pulls](https://github.com/manuelgeek/mpesab2c/pulls) 
