@@ -51,16 +51,16 @@ There will now be a new mpesa_b2c.php file in your config directory that is at t
 ### Mpesa B2C Laravel
 
 ```
-        $Amount ='300';
-        $CommandID = 'BusinessPayment';
-        $PartyB = '254708374149';
-        $Remarks = 'Payed well';
+    $Amount ='300';
+    $CommandID = 'BusinessPayment';
+    $PartyB = '254708374149';
+    $Remarks = 'Payed well';
 
-        //Using the Facade
-        $response = \B2C::sendMpesaMoney($Amount,$CommandID,$PartyB, $Remarks);
-        
-        //or the function
-        $response = sendMpesaMoney($Amount,$CommandID,$PartyB, $Remarks);
+    //Using the Facade
+    $response = \B2C::sendMpesaMoney($Amount,$CommandID,$PartyB, $Remarks);
+    
+    //or the function
+    $response = sendMpesaMoney($Amount,$CommandID,$PartyB, $Remarks);
 ```
 
 ### Without Laravel
