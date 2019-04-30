@@ -50,7 +50,7 @@ There will now be a new mpesa_b2c.php file in your config directory that is at t
 
 ### Mpesa B2C Laravel
 
-```
+```php
     $Amount ='300';
     $CommandID = 'BusinessPayment';
     $PartyB = '254708374149';
@@ -67,7 +67,7 @@ There will now be a new mpesa_b2c.php file in your config directory that is at t
 
 Example
 
-```
+```php
 <?php
 
     require_once "vendor/autoload.php";
