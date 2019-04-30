@@ -88,7 +88,7 @@ Example
 
 ### Successful Request
 Once sent, you shall expect a success acknowledgement response from the API informing you that your request was accepted. The response format is as below:
-```
+```json
 {
   "ConversationID": "AG_20180326_00005ca7f7c21d608166",
   "OriginatorConversationID": "12363-1328499-6",
@@ -100,7 +100,7 @@ Once sent, you shall expect a success acknowledgement response from the API info
 Note the value of ResponseCode. Any value other than 0 (zero) means the request was unsuccessful, and the error is defined in the ResponseDescription element. So you need to fix that first. A value of 0 means the request was accepted by the API.
 
 After M-Pesa completes processing the transaction, it sends back the callback via the ResultURL you specified in the initial request. A callback from M-Pesa can either be a success callback or a failure callback. A sample of a successful transaction callback is as shown below:
-```
+```json
 {
 	"Result":
 	{
