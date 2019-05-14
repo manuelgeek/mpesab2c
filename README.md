@@ -161,6 +161,45 @@ After M-Pesa completes processing the transaction, it sends back the callback vi
 
 ```
 
+A sample method to consume the callback response would be as below, just get the data and dump it to a ``transactions`` table
+
+```php
+    public function saveResponse()
+        {
+            $postData =  file_get_contents('php://input');
+   
+            $request = json_decode($postData,true);
+    
+            if ($request['Result']['ResultCode'] == 0) {
+    
+            	DB::table('mpesa_transactions')
+                ->insert([
+                    'ResultType' => $request['Result']['ResultType'],
+                    'ResultCode' => $request['Result']['ResultCode'],
+                    "ResultDesc" => $request['Result']['ResultDesc'],
+                    "OriginatorConversationID" => $request['Result']['OriginatorConversationID'],
+                    "ConversationID" => $request['Result']['ConversationID'],
+                    "TransactionID" => $request['Result']['TransactionID'],
+                    "TransactionReceipt" => $request['Result']['ResultParameters']['ResultParameter'][0]['Value'] ,
+                    "TransactionAmount" => $request['Result']['ResultParameters']['ResultParameter'][1]['Value'] ,
+                    "B2CWorkingAccountAvailableFunds" => $request['Result']['ResultParameters']['ResultParameter'][2]['Value'] ,
+                    "B2CUtilityAccountAvailableFunds" => $request['Result']['ResultParameters']['ResultParameter'][3]['Value'] ,
+                    "TransactionCompletedDateTime" => $request['Result']['ResultParameters']['ResultParameter'][4]['Value'] ,
+                    "ReceiverPartyPublicName" => $request['Result']['ResultParameters']['ResultParameter'][5]['Value'] ,
+                    "B2CChargesPaidAccountAvailableFunds" => $request['Result']['ResultParameters']['ResultParameter'][6]['Value'] ,
+                    "B2CRecipientIsRegisteredCustomer" => $request['Result']['ResultParameters']['ResultParameter'][7]['Value'] ,
+                    "QueueTimeoutURL" => $request['Result']['ReferenceData']['ReferenceItem']['Value'] ,
+                    'created_at'=>\Carbon\Carbon::now(),
+                    'updated_at'=>\Carbon\Carbon::now(),
+                ]);
+            }
+    
+    
+            return "success";
+        }
+
+```
+
 ## Contributing
 
 [https://github.com/manuelgeek/mpesab2c/pulls](https://github.com/manuelgeek/mpesab2c/pulls) 
