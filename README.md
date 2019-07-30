@@ -214,5 +214,5 @@ A sample method to consume the callback response would be as below, just get the
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-[<img width=200 src="https://appslab.co.ke/images/logo.png">](https://appslab.co.ke) 
+[<img width=200 src="https://appslab.co.ke/assets/img/logo.png">](https://appslab.co.ke) 
 
